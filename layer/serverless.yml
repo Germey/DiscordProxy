@@ -1,0 +1,13 @@
+org: '1256437459'
+app: discord-proxy
+stage: dev
+component: layer
+name: discord-proxy-layer
+inputs:
+  name: discord-proxy-layer
+  region: ap-hongkong
+  src:
+    src: ../node_modules
+    targetDir: /node_modules
+  runtimes:
+    - Nodejs12.16

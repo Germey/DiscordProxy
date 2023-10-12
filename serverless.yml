@@ -1,0 +1,31 @@
+component: http
+name: http-express-0Dd8y61Hmx
+inputs:
+  src:
+    src: ./
+    exclude:
+      - .env
+  faas:
+    framework: express
+    name: '${name}'
+    runtime: Nodejs12.16
+    eip: false
+    timeout: 3
+    memorySize: 512
+    tags: []
+    environments: []
+    layers:
+      - name: '${output:${stage}:${app}:discord-proxy-layer.name}'
+        version: '${output:${stage}:${app}:discord-proxy-layer.version}'
+  apigw:
+    protocols:
+      - http
+      - https
+    timeout: 60
+    environment: release
+    customDomains: []
+  region: ap-hongkong
+  isAutoCiDeploy: false
+org: '1256437459'
+app: discord-proxy
+stage: dev
